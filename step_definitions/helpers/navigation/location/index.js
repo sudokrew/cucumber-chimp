@@ -1,8 +1,11 @@
+var expect = require('chai').expect;
+
 var validUrl = require('valid-url');
 var url = require('url');
 
 module.exports = {
   atLocation: atLocation,
+  isAtLocation: isAtLocation,
 };
 
 /**
@@ -20,4 +23,8 @@ function atLocation (browser, uri) {
   }
 
   browser.url(resolvedUrl);
+}
+
+function isAtLocation (browser, url) {
+  expect(browser.getUrl() == url).to.equal(true);
 }

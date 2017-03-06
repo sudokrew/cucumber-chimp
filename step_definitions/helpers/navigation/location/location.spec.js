@@ -33,9 +33,31 @@ describe('Navigating by location', function () {
   });
 
   it('should resolve relative paths', function () {
-    const localPath = '/foo';
+    var localPath = '/foo';
     locationModule.atLocation(mockBrowser, localPath);
 
     expect(mockBrowser.url).to.have.been.calledWith(mockBrowser.baseUrl + 'foo');
+  });
+});
+
+describe('Validating location', function () {
+  /*
+   * Setting the mock browser's location to be the same baseUrl for the tests
+   */
+  beforeEach(function () {
+    mockBrowser = {
+      baseUrl: 'http://localhost:8080/',
+      getUrl: function () { return this.baseUrl },
+    };
+  });
+
+  it('should throw an error if location is not as asserted', function () {
+    var notAtLocation = locationModule.isAtLocation.bind(null, mockBrowser, 'not the same location');
+    expect(notAtLocation).to.throw();
+  });
+
+  it('should not throw an error if location is as asserted', function () {
+    var notAtLocation = locationModule.isAtLocation.bind(null, mockBrowser, mockBrowser.baseUrl);
+    expect(notAtLocation).to.not.throw();
   });
 });
