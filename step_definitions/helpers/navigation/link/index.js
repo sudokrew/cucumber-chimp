@@ -1,8 +1,3 @@
-var expect = require('chai').expect;
-
-var validUrl = require('valid-url');
-var url = require('url');
-
 module.exports = {
   validateAnchorText: validateAnchorText,
 };
