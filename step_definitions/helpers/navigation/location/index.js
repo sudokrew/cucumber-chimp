@@ -15,10 +15,8 @@ module.exports = {
  */
 function atLocation (browser, uri) {
   var resolvedUrl = url.resolve(browser.baseUrl, uri);
-  console.log(resolvedUrl)
 
   if (!validUrl.isWebUri(resolvedUrl)) {
-    console.log('broken');
     throw new Error('Invalid URL');
   }
 
