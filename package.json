@@ -1,0 +1,35 @@
+{
+  "name": "sudokrew-cucumber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "sinon": "^1.17.7",
+    "sinon-chai": "^2.8.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.7",
+    "sinon-chai": "^2.8.0",
+    "valid-url": "^1.0.9"
+  },
+  "scripts": {
+    "test": "mocha \"step_definitions/**/*.spec.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sudokrew/cucumber-chimp.git"
+  },
+  "keywords": [
+    "webdriver",
+    "cucumber",
+    "chimpjs"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sudokrew/cucumber-chimp/issues"
+  },
+  "homepage": "https://github.com/sudokrew/cucumber-chimp#readme"
+}
