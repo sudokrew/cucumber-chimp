@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var URL = require('url');
+var Url = require('url');
 
 module.exports = {
   setBrowserLocation: setBrowserLocation,
@@ -42,7 +42,7 @@ function resolveUrl (fromURL, toURI) {
     throw new Error('Invalid URL');
   }
 
-  return URL.resolve(fromURL, toURI);
+  return Url.resolve(fromURL, toURI);
 }
 
 /**
