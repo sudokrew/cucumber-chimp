@@ -14,7 +14,10 @@ module.exports = {
  * @param  {String}      url     The url to navigate to
  */
 function setBrowserLocation (browser, uri) {
-  var resolvedUrl = resolveUrl(browser.baseUrl, uri);
+  // TODO: for some reason, browser.option.baseUrl is not accessible
+  // https://github.com/xolvio/chimp/issues/580
+  var baseUrl = browser.options.baseUrl || '';
+  var resolvedUrl = resolveUrl(baseUrl, uri);
 
   browser.url(resolvedUrl);
 }
@@ -25,7 +28,7 @@ function setBrowserLocation (browser, uri) {
  * @param  {String}      targetUrl The target url
  */
 function assertAtLocation (browser, targetUrl) {
-  expect(browser.getUrl() == targetUrl).to.equal(true);
+  expect(browser.getUrl()).to.equal(targetUrl);
 }
 
 /**
