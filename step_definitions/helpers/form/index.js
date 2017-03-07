@@ -1,4 +1,4 @@
 module.exports = {
-  navigation: require('./navigation'),
   form: require('./form'),
+  input: require('./input'),
 };
