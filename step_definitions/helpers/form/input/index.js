@@ -17,8 +17,8 @@ function getInputElement (browser, reference) {
     return inputElement;
   }
 
-  const inputElementByPlaceholder = browser.element('input[placeholder="' + reference + '"]');
-  if (inputElementByPlaceholder.state !== 'failure') {
+  const inputElementByName = browser.element('input[name="' + reference + '"]');
+  if (inputElementByName.state !== 'failure') {
     return inputElementByPlaceholder;
   }
 
