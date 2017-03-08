@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var webdriverIOHelpers = require('../../webdriverio');
+var webdriverIOHelpers = require('../../../helpers/webdriverio');
 
 module.exports = {
   assertInputValue: assertInputValue,

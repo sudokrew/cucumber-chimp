@@ -1,6 +1,6 @@
-var helpers = require('./helpers');
-var navigation = helpers.navigation;
-var form = helpers.form;
+var lib = require('./lib');
+var navigation = lib.navigation;
+var form = lib.form;
 
 module.exports = function () {
   this.When(/^I am at "([^"]*)"$/, function (uri) {
