@@ -1,9 +1,12 @@
 var expect = require('chai').expect;
+var webdriverIOHelpers = require('../../webdriverio');
 
 module.exports = {
   assertInputValue: assertInputValue,
   setInputValue: setInputValue,
 };
+
+var getElement = webdriverIOHelpers.getElement;
 
 /**
  * Gets an input based on a reference string
@@ -12,19 +15,19 @@ module.exports = {
  * @return {String}      element   The input element
  */
 function getInputElement (browser, reference) {
-  const inputElement = browser.element(reference);
-  if (inputElement.state !== 'failure') {
+  var inputElement = getElement(browser, reference);
+  if (inputElement) {
     return inputElement;
   }
 
-  const inputElementByName = browser.element('input[name="' + reference + '"]');
-  if (inputElementByName.state !== 'failure') {
-    return inputElementByPlaceholder;
+  var inputElementByName = getElement(browser, 'input[name="' + reference + '"]');
+  if (inputElementByName) {
+    return inputElementByName;
   }
 
-  const inputElementByLabel = browser.element('label*=' + reference);
-  if (inputElementByLabel.state !== 'failure') {
-    return inputElementByLabel.element('input');
+  var labelElementByText = getElement(browser, 'label*=' + reference);
+  if (labelElementByText) {
+    return getElement(labelElementByText, 'input');
   }
 }
 
@@ -35,7 +38,7 @@ function getInputElement (browser, reference) {
  * @return {String}      value     The input's value
  */
 function getInputValue (browser, reference) {
-  const inputElement = getInputElement(browser, reference);
+  var inputElement = getInputElement(browser, reference);
   return inputElement.getValue();
 }
 
@@ -46,7 +49,7 @@ function getInputValue (browser, reference) {
  * @return {String}      value     The input's value
  */
 function setInputValue (browser, reference, value) {
-  const inputElement = getInputElement(browser, reference);
+  var inputElement = getInputElement(browser, reference);
   inputElement.setValue(value);
   return browser.pause(1000);
 }
