@@ -1,6 +1,6 @@
 {
   "name": "krewcumber",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A user acceptance test library powered by Cucumber and WebdriverIO",
   "main": "step_definitions/index.js",
   "dependencies": {
