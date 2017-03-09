@@ -1,6 +1,6 @@
 {
-  "name": "sudokrew-cucumber",
-  "version": "1.0.0",
+  "name": "krewcumber",
+  "version": "0.1.0",
   "description": "",
   "main": "step_definitions/index.js",
   "dependencies": {
@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sudokrew/cucumber-chimp.git"
+    "url": "git+https://github.com/sudokrew/krewcumber.git"
   },
   "keywords": [
     "webdriver",
@@ -37,7 +37,7 @@
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sudokrew/cucumber-chimp/issues"
+    "url": "https://github.com/sudokrew/krewcumber/issues"
   },
-  "homepage": "https://github.com/sudokrew/cucumber-chimp#readme"
+  "homepage": "https://github.com/sudokrew/krewcumber#readme"
 }
