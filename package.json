@@ -15,12 +15,12 @@
     "wait-on": "2.0.2"
   },
   "scripts": {
-    "chimp": "chimp example.chimp.config.js",
+    "chimp": "chimp example/chimp.config.js",
     "test": "mocha \"step_definitions/**/*.spec.js\"",
     "test:acceptance": " npm-run-all -p -r web test:webdriver",
     "test:webdriver": "npm-run-all wait-on:server chimp",
     "wait-on:server": "wait-on http://localhost:8080",
-    "web": "http-server test"
+    "web": "http-server example/test"
   },
   "repository": {
     "type": "git",
