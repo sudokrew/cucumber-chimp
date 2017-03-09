@@ -1,15 +1,11 @@
 var chai = require('chai');
-var sinon = require('sinon');
-var sinonChai = require('sinon-chai');
 
 var locationModule = require('./index');
 
 var expect = chai.expect;
 
-chai.use(sinonChai);
-
 describe('escape URI', function () {
-  it('shoud encode URIs', function () {
+  it('should encode URIs', function () {
     expect(locationModule.escapeURI('foo bar')).to.equal('foo%20bar');
     expect(locationModule.escapeURI('?foo=bar baz')).to.equal('?foo=bar%20baz');
   });

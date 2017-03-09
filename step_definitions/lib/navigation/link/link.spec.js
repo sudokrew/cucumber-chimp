@@ -1,12 +1,8 @@
 var chai = require('chai');
-var sinon = require('sinon');
-var sinonChai = require('sinon-chai');
 
 var linkModule = require('./index');
 
 var expect = chai.expect;
-
-chai.use(sinonChai);
 
 describe('Navigating by links', function () {
   var mockBrowser;
