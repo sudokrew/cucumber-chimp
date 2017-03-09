@@ -1,5 +1,7 @@
 # Krewcumber
 
+[![krewcumber npm](https://img.shields.io/npm/v/krewcumber.svg)]()
+
 Designed to work with [Chimp](https://chimp.readme.io/). Krewcumber is a library that makes use of
 [WebdriverIO](http://webdriver.io/) and [Cucumber](https://cucumber.io/) to make writing user
 acceptance tests easier.
