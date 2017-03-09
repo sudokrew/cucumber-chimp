@@ -1,7 +1,7 @@
 {
   "name": "krewcumber",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.2.0",
+  "description": "A user acceptance test library powered by Cucumber and WebdriverIO",
   "main": "step_definitions/index.js",
   "dependencies": {
     "chai": "3.5.0"
