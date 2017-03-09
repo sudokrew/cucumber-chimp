@@ -50,8 +50,7 @@ function getInputValue (browser, reference) {
  */
 function setInputValue (browser, reference, value) {
   var inputElement = getInputElement(browser, reference);
-  inputElement.setValue(value);
-  return browser.pause(1000);
+  return inputElement.setValue(value);
 }
 
 /**

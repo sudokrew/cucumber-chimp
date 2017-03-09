@@ -9,7 +9,7 @@ module.exports = {
  * @return {Element}     el       The webdriverio element if found, else null
  */
 function getElement(browser, selector) {
-  const el = browser.element(selector);
+  var el = browser.element(selector);
   switch (el.state) {
     case 'failure':
       return null;
