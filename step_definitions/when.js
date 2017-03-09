@@ -1,6 +1,7 @@
 var lib = require('./lib');
 var navigation = lib.navigation;
 var form = lib.form;
+var interaction = lib.interaction;
 
 module.exports = function () {
   this.When(/^I am at "([^"]*)"$/, function (uri) {
@@ -17,5 +18,9 @@ module.exports = function () {
 
   this.When(/^I submit the form$/, function () {
     return form.form.submitCurrentForm(browser);
+  });
+
+  this.When(/^I click the "([^"]*)"$/, function (selector) {
+    return interaction.clickElement(browser, selector);
   });
 }
