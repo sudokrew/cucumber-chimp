@@ -18,3 +18,7 @@ Feature: Manipulating inputs
     When I enter "Hello" into the "Search" field
      And I submit the form
     Then I should be at "http://localhost:8080/results.html?q=Hello"
+
+  Scenario: We want to check whether a field is required or not
+    Then "Email" should be required
+     And "Optional" should not be required

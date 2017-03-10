@@ -2,6 +2,7 @@ var expect = require('chai').expect;
 var webdriverIOHelpers = require('../../../helpers/webdriverio');
 
 module.exports = {
+  assertInputRequired: assertInputRequired,
   assertInputValue: assertInputValue,
   setInputValue: setInputValue,
 };
@@ -61,4 +62,33 @@ function setInputValue (browser, reference, value) {
  */
 function assertInputValue (browser, reference, value) {
   expect(getInputValue(browser, reference)).to.equal(value);
+}
+
+/**
+ * Get the attribute of an input
+ * @param  {WebdriverIO}  browser        Instance of web driver
+ * @param  {String}       reference      The input reference, could be name > placeholder > label
+ * @param  {String}       attributeName  The name of the attribute
+ * @return {String}       value          The value of the attribute
+ */
+function getInputAttribute (browser, reference, attributeName) {
+  var inputElement = getInputElement(browser, reference);
+  if (inputElement) {
+    return inputElement.getAttribute(attributeName);
+  }
+
+  return null;
+}
+
+/**
+ * Asserts whether a field is required or not
+ * @param  {WebdriverIO} browser     Instance of web driver
+ * @param  {String}      reference   The input reference, could be name > placeholder > label
+ * @param  {Boolean}     isRequired  Whether the field is required or not
+ */
+function assertInputRequired (browser, reference, isRequired) {
+  var message = 'Expected ' + reference + ' to ' + (isRequired ? '' : 'not') + ' be required';
+  var value = getInputAttribute(browser, reference, 'required');
+
+  expect(!!value, message).to.equal(!!isRequired);
 }

@@ -10,4 +10,8 @@ module.exports = function () {
   this.Then(/^The "([^"]*)" input should be "([^"]*)"$/, function (inputReference, value) {
     return form.input.assertInputValue(browser, inputReference, value);
   });
+
+  this.Then(/^"([^"]*)" should( not)? be required$/, function (inputReference, isNotRequired) {
+    return form.input.assertInputRequired(browser, inputReference, !isNotRequired);
+  });
 }
