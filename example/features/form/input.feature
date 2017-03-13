@@ -7,7 +7,7 @@ Feature: Manipulating inputs
   
   Scenario Outline: We want to test setting the value of an input.
     When I enter "<value>" into the "Search" field
-    Then The "Search" input should be "<value>"
+    Then the "Search" field should be "<value>"
     
     Examples:
       | value |
@@ -20,5 +20,5 @@ Feature: Manipulating inputs
     Then I should be at "http://localhost:8080/results.html?q=Hello"
 
   Scenario: We want to check whether a field is required or not
-    Then "Email" should be required
-     And "Optional" should not be required
+    Then the "Email" field should be required
+     And the "Optional" field should not be required
