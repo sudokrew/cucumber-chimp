@@ -5,6 +5,7 @@ var getElement = webdriverIOHelpers.getElement;
 
 module.exports = {
   assertSelectContainsOptions: assertSelectContainsOptions,
+  setSelectValue: setSelectValue,
 };
 
 /**
@@ -49,4 +50,15 @@ function assertSelectContainsOptions (browser, reference, options, isRequired) {
   }
 
   return expect(actualValues).to.not.include.members(expectedValues);
+}
+
+/**
+ * Sets the select elements value based on visible text
+ * @param  {WebdriverIO} browser   Instance of web driver
+ * @param  {String}      reference The select reference, could be name > placeholder > label
+ * @param  {String}      text      The text to select by
+ */
+function setSelectValue (browser, reference, text) {
+  var selectElement = getSelectElement(browser, reference);
+  return selectElement.selectByVisibleText(text);
 }

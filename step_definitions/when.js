@@ -23,4 +23,8 @@ module.exports = function () {
   this.When(/^I click the "([^"]*)"$/, function (selector) {
     return interaction.clickElement(browser, selector);
   });
+
+  this.When(/^I select the "([^"]*)" option from the "([^"]*)" dropdown$/, function (value, selectReference) {
+    return form.select.setSelectValue(browser, selectReference, value);
+  });
 }

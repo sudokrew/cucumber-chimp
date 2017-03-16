@@ -12,3 +12,6 @@ Feature: Manipulating selects
   Scenario: We want to check whether a multiselect has a option
     Then the "Tags" multiselect should contain the options: "Events, Promos"
      And the "Tags" multiselect should not contain the option: "News"
+
+  Scenario: We want to select a dropdown option
+    When I select the "Red" option from the "Color" dropdown
