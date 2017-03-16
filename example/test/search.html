@@ -53,5 +53,35 @@
       value="Register"
     >
   </form>
+
+  <form
+    action="/results.html"
+    method="GET"
+  >
+    <label>
+      Colors
+      <select
+        name="color"
+      >
+        <option selected disabled>Select color</option>
+        <option value="red">Red</option>
+        <option value="yellow">Yellow</option>
+        <option value="blue">Blue</option>
+      </select>
+    </label>
+    <label>
+      Tags
+      <select
+        name="tags"
+      >
+        <option value="events">Events</option>
+        <option value="promos">Promos</option>
+      </select>
+    </label>
+    <input
+      type="submit"
+      value="Create"
+    >
+  </form>
 </body>
 </html>
