@@ -30,14 +30,19 @@ function getSelectElement (browser, reference) {
   }
 }
 
-function assertSelectContainsOptions (browser, selectReference, options, isRequired) {
+/**
+ * Checks the whether the select element contains a value or not
+ * @param  {WebdriverIO} browser    Instance of web driver
+ * @param  {String}      reference  The select reference, could be name > placeholder > label
+ * @param  {[String]}    options    The expected options
+ * @param  {Boolean}     isRequired Whether the options are required or not
+ */
+function assertSelectContainsOptions (browser, reference, options, isRequired) {
   var expectedValues = options.split(/,\s*/g);
-  var selectElement = getSelectElement(browser, selectReference);
+  var selectElement = getSelectElement(browser, reference);
   var actualValues = selectElement.elements('option').value.map(function (optionElement) {
     return optionElement.getText();
   });
-
-  console.log(actualValues);
 
   if (isRequired) {
     return expect(actualValues).to.include.members(expectedValues);

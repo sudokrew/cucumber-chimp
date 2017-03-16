@@ -6,8 +6,8 @@ Feature: Manipulating selects
     Given I am at "http://localhost:8080/search.html"
 
   Scenario: We want to check whether a dropdown has a option
-    Then the "Colors" dropdown should contain the options: "Red, Yellow, Blue"
-     And the "Colors" dropdown should not contain the option: "Black"
+    Then the "Color" dropdown should contain the options: "Red, Yellow, Blue"
+     And the "Color" dropdown should not contain the option: "Black"
 
   Scenario: We want to check whether a multiselect has a option
     Then the "Tags" multiselect should contain the options: "Events, Promos"
