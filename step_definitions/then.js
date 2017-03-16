@@ -14,4 +14,8 @@ module.exports = function () {
   this.Then(/^the "([^"]*)" field should( not)? be required$/, function (inputReference, isNotRequired) {
     return form.input.assertInputRequired(browser, inputReference, !isNotRequired);
   });
+
+  this.Then(/^the "([^"]*)" (?:dropdown|multiselect) should( not)? contain the options?: "([^"]*)"$/, function (selectReference, isNotRequired, options) {
+    return form.select.assertSelectContainsOptions(browser, selectReference, options, !isNotRequired);
+  });
 }
