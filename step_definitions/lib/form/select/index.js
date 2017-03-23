@@ -3,9 +3,13 @@ var webdriverIOHelpers = require('../../../helpers/webdriverio');
 
 var getElement = webdriverIOHelpers.getElement;
 
+var COMMA_SEPARATION = /,\s*/g;
+
 module.exports = {
   assertSelectContainsOptions: assertSelectContainsOptions,
+  assertSelectedValue: assertSelectedValue,
   setSelectValue: setSelectValue,
+  setMultiSelectValue: setMultiSelectValue,
 };
 
 /**
@@ -53,6 +57,27 @@ function assertSelectContainsOptions (browser, reference, options, isRequired) {
 }
 
 /**
+ * Checks the whether the select element has an option selected or not
+ * @param  {WebdriverIO} browser    Instance of web driver
+ * @param  {String}      reference  The select reference, could be name > placeholder > label
+ * @param  {String}      text       The selected option's text
+ * @param  {Boolean}     isSelected Whether the options are selected or not
+ */
+function assertSelectedValue (browser, reference, text, isSelected) {
+  var expectedValues = text.split(COMMA_SEPARATION);
+  var selectElement = getSelectElement(browser, reference);
+  var actualValues = selectElement.elements('option:checked').value.map(function (optionElement) {
+    return optionElement.getText();
+  });
+
+  if (isSelected) {
+    return expect(actualValues).to.include.members(expectedValues);
+  }
+
+  return expect(actualValues).to.not.include.members(expectedValues);
+}
+
+/**
  * Sets the select elements value based on visible text
  * @param  {WebdriverIO} browser   Instance of web driver
  * @param  {String}      reference The select reference, could be name > placeholder > label
@@ -61,4 +86,19 @@ function assertSelectContainsOptions (browser, reference, options, isRequired) {
 function setSelectValue (browser, reference, text) {
   var selectElement = getSelectElement(browser, reference);
   return selectElement.selectByVisibleText(text);
+}
+
+/**
+ * Sets the multiselect elements value based on visible text
+ * @param  {WebdriverIO} browser   Instance of web driver
+ * @param  {String}      reference The select reference, could be name > placeholder > label
+ * @param  {String}      text      The text to select by
+ */
+function setMultiSelectValue (browser, reference, text) {
+  var selectElement = getSelectElement(browser, reference);
+  var targetValues = text.split(COMMA_SEPARATION);
+
+  targetValues.forEach(function (text) {
+    return selectElement.selectByVisibleText(text);
+  });
 }

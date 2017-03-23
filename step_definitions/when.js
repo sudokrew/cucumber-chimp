@@ -27,4 +27,8 @@ module.exports = function () {
   this.When(/^I select the "([^"]*)" option from the "([^"]*)" dropdown$/, function (value, selectReference) {
     return form.select.setSelectValue(browser, selectReference, value);
   });
+
+  this.When(/^I select the "([^"]*)" options from the "([^"]*)" multiselect$/, function (value, selectReference) {
+    return form.select.setMultiSelectValue(browser, selectReference, value);
+  });
 }
