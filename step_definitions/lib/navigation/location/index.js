@@ -28,7 +28,9 @@ function setBrowserLocation (browser, uri) {
  * @param  {String}      targetUrl The target url
  */
 function assertAtLocation (browser, targetUrl) {
-  expect(browser.getUrl()).to.equal(targetUrl);
+  var actualUrl = browser.getUrl();
+  var resolvedUrl = resolveUrl(actualUrl, targetUrl);
+  expect(actualUrl).to.equal(resolvedUrl);
 }
 
 /**
