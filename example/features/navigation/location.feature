@@ -9,3 +9,7 @@ Feature: Navigating via browser location
   Scenario: We want to test navigating via setting a relative URL.
     When I am at "/"
     Then I should be at "http://localhost:8080/"
+  
+  Scenario: We want to test asserting a relativeURL.
+    When I am at "/"
+    Then I should be at "/"
